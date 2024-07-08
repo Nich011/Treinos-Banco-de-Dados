@@ -6,22 +6,23 @@ using Microsoft.Extensions.Configuration.Json;
 
 Console.WriteLine("Hello, World!");
 
-MySql.Data.MySqlClient.MySqlConnection myConnection;
+MySql.Data.MySqlClient.MySqlConnection myConnection; // Conexão do MySQL
 
 var _configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .Build();
-    string? myConnectionString = "";
-if (_configuration != null) 
-    myConnectionString = _configuration.GetConnectionString("myConnectionString") ;   //"server=127.0.0.1;uid=root;pwd=Nicholas01**;database=projeto_formulario;";
+    .AddJsonFile("appsettings.json") // O arquivo JSON onde está a ConnectionString
+    .Build(); // Cria a configuração para o objeto de ConnectionString usando o que está no JSON
+string? myConnectionString = ""; // myConnectionString a esse ponto ainda está vazia
+
+if (_configuration != null) // contanto que _configuration (o construtor de configuração) seja diferente de nulo, a string de conexão é igual à presente no JSON
+    myConnectionString = _configuration.GetConnectionString("myConnectionString");   //"server=127.0.0.1;uid=root;pwd=Nicholas01**;database=projeto_formulario;";
 
 try
 {
     myConnection = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString); // A sessão estabelecida com o banco de dados usando os valores de conexão 
     myConnection.Open(); // Cria a conexão com o banco de dados
 
-    // Comando SQL
-    MySqlCommand myCommand = new MySqlCommand();
+    
+    MySqlCommand myCommand = new MySqlCommand(); // Comando SQL
     myCommand.Connection = myConnection; // Especifica em qual conexão o comando deve ser executado
     myCommand.CommandText = @"SELECT * FROM corretores2;"; // O comando a ser executado
 
@@ -42,16 +43,18 @@ try
             var pessoas = myReader.GetBoolean("pessoas");
             var bens = myReader.GetBoolean("bens");
             var patrimônio = myReader.GetBoolean("patrimônio");
-            var dados= myReader.GetBoolean("dados");
+            var dados = myReader.GetBoolean("dados");
             var microsseguros = myReader.GetBoolean("microsseguros");
             var datacriacao = myReader.GetDateTime("datacriacao");
             var data_atualizacao = myReader.GetDateTime("data_atualizacao");
 
-            Console.WriteLine(employer_num + ',' + name + ',' + company_name + ','+ email+','+ number+','+ consultancy+','+ susep_code+','+ capitalização+','+ prev_complementar+','+ pessoas+','+ bens+','+ patrimônio+','+ dados+','+ microsseguros);
+            Console.WriteLine(employer_num + ',' + name + ',' + company_name + ',' + email + ',' + number + ',' + consultancy + ',' + susep_code + ',' + capitalização + ',' + prev_complementar + ',' + pessoas + ',' + bens + ',' + patrimônio + ',' + dados + ',' + microsseguros);
         }
     }
     myConnection.Close(); // Encerra a conexão com o banco de dados
 }
+
+// Caso haja algum erro, é exibido no terminal
 catch (MySql.Data.MySqlClient.MySqlException ex)
 {
     Console.WriteLine(ex);

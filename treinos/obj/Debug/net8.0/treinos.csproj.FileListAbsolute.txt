@@ -44,3 +44,4 @@ C:\Users\NicholasGoes\Documents\Treinos\DOTNET\Treinos Banco de Dados\treinos\bi
 C:\Users\NicholasGoes\Documents\Treinos\DOTNET\Treinos Banco de Dados\treinos\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\NicholasGoes\Documents\Treinos\DOTNET\Treinos Banco de Dados\treinos\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\NicholasGoes\Documents\Treinos\DOTNET\Treinos Banco de Dados\treinos\bin\Debug\net8.0\appsettings.json
+C:\Users\NicholasGoes\Documents\Treinos\DOTNET\Treinos Banco de Dados\treinos\obj\Debug\net8.0\treinos.sourcelink.json
