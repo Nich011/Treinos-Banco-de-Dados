@@ -9,7 +9,7 @@ Console.WriteLine("Hello, World!");
 MySql.Data.MySqlClient.MySqlConnection myConnection; // Conexão do MySQL
 
 var _configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json") // O arquivo JSON onde está a ConnectionString
+    .AddJsonFile("config/appsettings.json") // O arquivo JSON onde está a ConnectionString
     .Build(); // Cria a configuração para o objeto de ConnectionString usando o que está no JSON
 string? myConnectionString = ""; // myConnectionString a esse ponto ainda está vazia
 

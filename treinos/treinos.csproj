@@ -8,7 +8,7 @@
   </PropertyGroup>
 
 <ItemGroup>
-  <None Update="appsettings.json">
+  <None Update="config/*">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
 </ItemGroup>
